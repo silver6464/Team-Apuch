@@ -1,0 +1,24 @@
+
+Messaging Feature:
+-Send message: Observer
+-Read Message:
+-Compose Message: Abstract Factory
+-Delete Message: 
+
+Post Managing Feature: (upload file)
+-share post:
+-download file:
+-delete post:
+-comment on post:
+
+Friends feature
+- controls visibility of contact and private information of a user
+	-- the query goes through the (proxy) which checks If the user is a friend. If it's a friend, then private information (posts contact information) will be 		shared. If not, then it will be concealed.
+- enables users to message each other using the messaging function even if they aren't in the same classroom
+	-- the query goes through the (proxy) which checks if the user is a friend or is a classmate. If the user is, then messaging may be done. If not, then 		messaging will be restricted.
+
+Classroom post filter:
+-post control (Interface)
+	-- let's the instructor control (delete, publish or edit) classrrom posts on the class feed
+
+Classroom Feed
