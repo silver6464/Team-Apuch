@@ -1,0 +1,103 @@
+Messaging Feature: Abstract Factory Design Pattern
+- Messages other users given that they are in each others' friends list or classroom
+-- Composing a message will call a factory method to add the time stamp, body, attachments and recipients to the message
+
+Functions:
+-Send: 
+-Read:
+-Compose:
+-Delete:
+-Attach:
+
+RULES:
+*ONLY to CLASSMATES or FRIENDS
+*May have multiple users in a conversation
+*MUST have a body
+
+TESTS:
+SEND:
+-Check if Message is blank
+-Check if Recipient(s) exists
+-Check if Recipient(s) is Classmate or Friend
+
+READ:
+-Check if Message exists
+-Check if Message comes from a Classmate or Friend
+
+COMPOSE:
+-Check if a message is actually being written
+-Check if a timestamp is added to the message
+
+DELETE:
+-Check if message exists
+
+OTHER TESTS:
+-Check is multiple users may be on a conversation
+-Check if less than 2 users are on a conversation
+
+---------
+
+Post Feature: Abstract Factory Design Pattern
+- Uploads a post for review before being approved to be published into the classroom feed.
+-- Composing a post will call a factory method to add the time stamp, body, attachments and recipients to the post to be sent for approval for publish to the class feed
+
+Functions:
+-Share Post:
+-Compose Post:
+-Attach File:
+-Delete Post:
+-Edit Post:
+
+RULES:
+*Posts must be reviewed after sharing
+
+TESTS:
+Share Post:
+-Check if post has content (body or attachment)
+-Check if post is being reviewed
+
+Compose Post:
+-Check if post can be composed
+
+Attach File:
+-Check if valid file size
+-Check if file can be uploaded/attached
+
+Delete Post:
+-Check if post exists
+-Check if authorized
+
+Edit Post:
+-Check if post exists
+-Check if authorized
+
+
+--------------
+
+Friends List Filter: Proxy Design Pattern
+- Controls visibility of contact and private information of a user
+-- The query goes through the (proxy) which checks If the user is a friend. If it's a friend, then private information (posts contact information) will be shared. If not, then it will be concealed.
+
+- Enables users to message each other using the messaging function even if they aren't in the same classroom
+-- The query goes through the (proxy) which checks if the user is a friend or is a classmate. If the user is, then messaging may be done. If not, then messaging will be restricted.
+
+Friends List Functions:
+- Add to List
+- Remove from List
+
+RULES:
+*ONLY friends can see a user's full profile
+*Non-friends can see limitted user information
+
+TESTS:
+- check if the user has the permission to view profile of another user
+- check if a user is a friend or a classmate before sending message
+- check if all people with "friends" attribute are in the Friends List
+- check if user is added to list after AddtoList function
+- check if user is removed from list after RemovefromList function
+- check if user information displayed in a user's profile is limited when the user viewing doesn't have "friends" attribute.
+- check if message is received when sending message to a friend
+- check if message is received when sending message to a classmate
+- check if message is received when sending message to a non-friend / non-classmate
+- check if all message that goes to the proxy is properly handled
+
